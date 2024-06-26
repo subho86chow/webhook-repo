@@ -1,8 +1,8 @@
 from flask import Flask
-from app.extensions import mongo
-from app.webhook.routes import webhook
+from application.extensions import mongo
+from application.webhook.routes import webhook
 from flask_pymongo import PyMongo
-from app.home.routes import HomePage,format_datetime
+from application.home.routes import HomePage,format_datetime
 
 
 # Creating our flask app

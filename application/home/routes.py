@@ -1,8 +1,8 @@
 from flask import Blueprint, json, request, jsonify,render_template,current_app
-from app.extensions import *
+from application.extensions import *
 from datetime import datetime
 from bson import json_util
-from app.extensions import mongo
+from application.extensions import mongo
 
 
 HomePage = Blueprint('Home', __name__, url_prefix='/')
