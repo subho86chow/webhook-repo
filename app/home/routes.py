@@ -17,18 +17,23 @@ def format_datetime(value, format="%d %B %Y - %I:%M %p UTC"):
 # route for home page
 @HomePage.route('/', methods=["GET","POST"])
 def home_page():
-    all_items = mongo.db.events.find().sort("timestamp", -1)
-    return render_template('index.html',items = all_items)
+    try:
+        all_items = mongo.db.events.find().sort("timestamp", -1)
+    except AttributeError:
+        all_items = []
+    return render_template('index.html', items=all_items)
 
 
 
 # route for fetching data
 @HomePage.route("/get-data-api", methods=['GET'])
 def get_event_data():
-    all_items = list(mongo.db.events.find().sort("timestamp", -1))
-    for item in all_items:
-        item['_id'] = str(item['_id'])
-    return json.loads(json_util.dumps(all_items)) 
-
+    try:
+        all_items = list(mongo.db.events.find().sort("timestamp", -1))
+        for item in all_items:
+            item['_id'] = str(item['_id'])
+        return json.loads(json_util.dumps(all_items)) 
+    except AttributeError:
+        return {'status':False},404
 
 
