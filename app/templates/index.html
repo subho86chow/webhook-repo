@@ -70,13 +70,13 @@
           </div>
           {% endif %} {% if item['action_type']=="pull"%}
           <div class="alert alert-secondary" role="alert">
-            "{{item['author']}}" submitted a pull request from
+            "{{item['author']}}" submitted a <span class="badge badge-pill badge-warning">pulled</span> request from
             "{{item['from_branch']}}" to "{{item['to_branch']}}" on
             {{item['timestamp']|datetime}}
           </div>
           {% endif %} {% if item['action_type']=="merge"%}
           <div class="alert alert-secondary" role="alert">
-            "{{item['author']}}" merged branch "{{item['from_branch']}}" to
+            "{{item['author']}}" <span class="badge badge-pill badge-info">merged</span> branch "{{item['from_branch']}}" to
             "{{item['to_branch']}}" on {{item['timestamp']|datetime}}
           </div>
           {% endif %} {% endfor %}

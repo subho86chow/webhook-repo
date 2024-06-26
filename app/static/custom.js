@@ -34,13 +34,13 @@ function fetchAPIdata(){
         } else if (data[i].action_type == 'pull') {
             alertHTML = `
                 <div class="alert alert-secondary" role="alert">
-                    "${data[i].author}" pulled from "${data[i].from_branch}" to "${data[i].to_branch}" on ${formatDate(data[i].timestamp)}
+                    "${data[i].author}"  <span class="badge badge-pill badge-warning">pulled</span> from "${data[i].from_branch}" to "${data[i].to_branch}" on ${formatDate(data[i].timestamp)}
                 </div>
             `;
         } else if (data[i].action_type == 'merge') {
             alertHTML = `
                 <div class="alert alert-secondary" role="alert">
-                    "${data[i].author}" merged from "${data[i].from_branch}" to "${data[i].to_branch}" on ${formatDate(data[i].timestamp)}
+                    "${data[i].author}" <span class="badge badge-pill badge-info">merged</span> from "${data[i].from_branch}" to "${data[i].to_branch}" on ${formatDate(data[i].timestamp)}
                 </div>
             `;
         }
