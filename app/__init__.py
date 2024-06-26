@@ -10,8 +10,8 @@ def create_app():
 
     app = Flask(__name__)
 
-    app.config["MONGO_URI"] = "mongodb://localhost:27017/webhooks_db"
-    # app.config["MONGO_URI"] = "mongodb+srv://subho86chow:webhook_db@cluster0.cwcw5oc.mongodb.net/webhooks_db"
+    # app.config["MONGO_URI"] = "mongodb://localhost:27017/webhooks_db"
+    app.config["MONGO_URI"] = "mongodb+srv://subho86chow:webhook_db@cluster0.cwcw5oc.mongodb.net/webhooks_db"
     mongo.init_app(app)
 
     # registering all template filter
