@@ -67,9 +67,9 @@
             "{{item['author']}}" <span class="badge badge-pill badge-success">pushed</span> to "{{item['to_branch']}}" on
             {{item['timestamp']|datetime}} 
           </div>
-          {% endif %} {% if item['action_type']=="pull"%}
+          {% endif %} {% if item['action_type']=="pull_request"%}
           <div class="alert alert-secondary" role="alert">
-            "{{item['author']}}" submitted a <span class="badge badge-pill badge-warning">pulled</span> request from
+            "{{item['author']}}" submitted a <span class="badge badge-pill badge-warning">pull</span> request from
             "{{item['from_branch']}}" to "{{item['to_branch']}}" on
             {{item['timestamp']|datetime}}
           </div>

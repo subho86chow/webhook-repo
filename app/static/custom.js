@@ -31,10 +31,10 @@ function fetchAPIdata(){
                     "${data[i].author}" <span class="badge badge-pill badge-success">pushed</span> to "${data[i].to_branch}" on ${formatDate(data[i].timestamp)}
                 </div>
             `;
-        } else if (data[i].action_type == 'pull') {
+        } else if (data[i].action_type == 'pull_request') {
             alertHTML = `
                 <div class="alert alert-secondary" role="alert">
-                    "${data[i].author}"  <span class="badge badge-pill badge-warning">pulled</span> from "${data[i].from_branch}" to "${data[i].to_branch}" on ${formatDate(data[i].timestamp)}
+                    "${data[i].author}" submitted a  <span class="badge badge-pill badge-warning">pull</span> request from "${data[i].from_branch}" to "${data[i].to_branch}" on ${formatDate(data[i].timestamp)}
                 </div>
             `;
         } else if (data[i].action_type == 'merge') {

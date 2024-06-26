@@ -22,7 +22,7 @@ def receiver():
             'timestamp': datetime.utcnow(),
             'action_type': 'push'
         }
-    elif event_type == 'pull':
+    elif event_type == 'pull_request':
         event_data = {
             'author': data['pull_request']['user']['login'],
             'from_branch': data['pull_request']['head']['ref'],
