@@ -1,4 +1,4 @@
-from flask import Blueprint, json, request, jsonify
+from flask import Blueprint, json, request, jsonify, current_app
 from datetime import datetime 
 from app.extensions import mongo
 webhook = Blueprint('Webhook', __name__, url_prefix='/webhook')

@@ -1,6 +1,7 @@
 from flask import Flask
 from app.extensions import mongo
 from app.webhook.routes import webhook
+from flask_pymongo import PyMongo
 from app.home.routes import HomePage,format_datetime
 
 
@@ -9,9 +10,7 @@ def create_app():
 
     app = Flask(__name__)
 
-    # db connection
-    # app.config["MONGO_URI"] = "mongodb://localhost:27017/webhooks_db"
-    app.config["MONGO_URI"] = "mongodb+srv://subho86chow:webhook_db@webhook-db.85fbgbu.mongodb.net/?retryWrites=true&w=majority&appName=webhook-db"
+    app.config["MONGO_URI"] = "mongodb+srv://subho86chow:webhook_db@cluster0.cwcw5oc.mongodb.net/webhooks_db"
     mongo.init_app(app)
 
     # registering all template filter

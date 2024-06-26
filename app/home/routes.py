@@ -1,4 +1,4 @@
-from flask import Blueprint, json, request, jsonify,render_template
+from flask import Blueprint, json, request, jsonify,render_template,current_app
 from app.extensions import *
 from datetime import datetime
 from bson import json_util
@@ -29,10 +29,11 @@ def home_page():
 @HomePage.route("/get-data-api", methods=['GET'])
 def get_event_data():
     try:
-        all_items = list(mongo.db.events.find().sort("timestamp", -1))
+        all_items = list(mongo.db.events.find({}).sort("timestamp", -1))
         for item in all_items:
             item['_id'] = str(item['_id'])
         return json.loads(json_util.dumps(all_items)) 
+                   
     except AttributeError:
         return {'status':False},404
 
